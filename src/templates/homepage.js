@@ -1,16 +1,16 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Seo from "../components/seo";
+import {graphql} from "gatsby";
+import Seo from "../components/Seo";
 import SliceZone from "../components/SliceZone";
 
-const HomePage = ({ data }) => {
+const HomePage = ({data}) => {
 
     if (!data) return null
 
     const pageContent = data.prismicHomepage || {};
     return (
         <>
-            <Seo title="Home" />
+            <Seo title="Home"/>
             <SliceZone
                 body={pageContent.data.body}
                 page="home"

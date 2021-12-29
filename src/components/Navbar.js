@@ -2,24 +2,24 @@ import React from "react"
 import logo from "../assets/images/Maivita_logo.jpg"
 import {FaAlignRight, FaHome} from "react-icons/fa"
 import pageLinks from "../constants/links"
-import { Link } from "gatsby"
+import {Link} from "gatsby"
 import styled from "styled-components"
 
-const Navbar = () => {
+const Navbar = ({toggleSidebar}) => {
     return <NavWrapper>
         <NavCenter>
             <NavHeader>
                 <Link to="/">
-                    <Logo src={logo}  alt="maivita" />
+                    <Logo src={logo} alt="maivita"/>
                 </Link>
-                <ToggleButton>
-                    <FaAlignRight />
+                <ToggleButton onClick={toggleSidebar}>
+                    <FaAlignRight/>
                 </ToggleButton>
             </NavHeader>
             <NavLinks>
                 {pageLinks.map((link) => {
                     return (<Link key={link.id} to={link.url}>
-                        {link.text === "koti" ? <FaHome size={28} /> : link.text}
+                        {link.text === "koti" ? <FaHome size={28}/> : link.text}
                     </Link>)
                 })}
             </NavLinks>
@@ -28,7 +28,7 @@ const Navbar = () => {
 }
 
 const Logo = styled.img`
-    width: 200px;
+  width: 200px;
   margin-top: 0.375rem;
 
   @media screen and (max-width: 767px) {
@@ -53,9 +53,9 @@ const NavWrapper = styled.nav`
 `
 
 const NavCenter = styled.div`
-    width: 90vw;
-    max-width: 1170px;
-    margin: 0 auto;
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     display: grid;
@@ -64,13 +64,13 @@ const NavCenter = styled.div`
   }
 `
 const NavHeader = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const NavLinks = styled.div`
-    display: none;
+  display: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -93,21 +93,21 @@ const NavLinks = styled.div`
   }
 `
 
- const ToggleButton = styled.button`
-    font-size: 2rem;
-    background: transparent;
-    border-color: transparent;
-    color: var(--clr-primary-5);
-    cursor: pointer;
-    transition: var(--transition);
+const ToggleButton = styled.button`
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  cursor: pointer;
+  transition: var(--transition);
 
-   &:hover {
-     color: var(--clr-primary-2);
-   }
+  &:hover {
+    color: var(--clr-primary-2);
+  }
 
-   @media screen and (min-width: 768px) {
-     display: none;
-   }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 export default Navbar

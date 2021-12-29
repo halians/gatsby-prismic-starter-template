@@ -15,7 +15,7 @@ const data = [
         url: "/ajankohtaista/",
     },
     {
-        id: 5,
+        id: 4,
         text: "Yhteystiedot",
         url: "/contact/",
     },

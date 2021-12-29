@@ -1,9 +1,9 @@
 import React from "react";
 import SliceZone from "../components/SliceZone";
 import {PrismicRichText} from "@prismicio/react";
-import { graphql } from "gatsby";
+import {graphql} from "gatsby";
 import styled from "styled-components";
-import Seo from "../components/seo";
+import Seo from "../components/Seo";
 
 
 const Form = styled.form`
@@ -55,55 +55,56 @@ const Button = styled.button`
   }
 ;
 `
-const ContactPage = ({ data }) => {
+const ContactPage = ({data}) => {
 
-  const lang = data.prismicContactpage.lang;
-  const contactPage = data.prismicContactpage || {};
+    const lang = data.prismicContactpage.lang;
+    const contactPage = data.prismicContactpage || {};
 
-  return (
-    <>
-      <Seo title="Contact" />
-      <SliceZone
-        body={contactPage.data.body}
-        page="contact"
-      />
+    return (
+        <>
+            <Seo title="Contact"/>
+            <SliceZone
+                body={contactPage.data.body}
+                page="contact"
+            />
 
-      <Form name="contact-us"
-            method="POST"
-            data-netlify="true"
-            action="/contact-success"
-        >
-        <input type="hidden" name="form-name" value="contact-us" />
+            <Form name="contact-us"
+                  method="POST"
+                  data-netlify="true"
+                  action="/contact-success"
+            >
+                <input type="hidden" name="form-name" value="contact-us"/>
 
-        <h2><PrismicRichText field={contactPage.data.form_title.richText} /></h2>
+                <h2><PrismicRichText field={contactPage.data.form_title.richText}/></h2>
 
-        { contactPage.data.form_group_fields.map((field, index) => {
+                {contactPage.data.form_group_fields.map((field, index) => {
 
-            if (field.field_type === 'textarea') {
-              return (
-                <div key={index}>
-                  <label>{field.field_title}</label>
-                  <textarea name={field.field_name} required={field.required === 'yes'} />
-                </div>
-              )
-            } else if (field.field_type === 'submit') {
-              return (
-                  <Button key={index}>{field.field_title}</Button>
-              )
-            } else {
-              return (
-                <div key={index}>
-                  <label>{field.field_title} {field.required === 'yes' ? '*' : ''}</label>
-                  <input type={field.type} name={field.field_name} autoComplete="none" required={field.required === 'yes'} />
-                </div>
-              )
-            }
-        })}
+                    if (field.field_type === 'textarea') {
+                        return (
+                            <div key={index}>
+                                <label>{field.field_title}</label>
+                                <textarea name={field.field_name} required={field.required === 'yes'}/>
+                            </div>
+                        )
+                    } else if (field.field_type === 'submit') {
+                        return (
+                            <Button key={index}>{field.field_title}</Button>
+                        )
+                    } else {
+                        return (
+                            <div key={index}>
+                                <label>{field.field_title} {field.required === 'yes' ? '*' : ''}</label>
+                                <input type={field.type} name={field.field_name} autoComplete="none"
+                                       required={field.required === 'yes'}/>
+                            </div>
+                        )
+                    }
+                })}
 
-      </Form>
+            </Form>
 
-    </>
-  );
+        </>
+    );
 };
 
 export const query = graphql`
