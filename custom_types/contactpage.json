@@ -1,0 +1,112 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug",
+        "placeholder" : "Slug"
+      }
+    },
+    "page_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Page title",
+        "placeholder" : "Title"
+      }
+    },
+    "form_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Form title",
+        "placeholder" : "Form title"
+      }
+    },
+    "form_group_fields" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "field_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Field name",
+              "placeholder" : "Field name"
+            }
+          },
+          "field_title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Field title",
+              "placeholder" : "Field title"
+            }
+          },
+          "field_type" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "text", "email", "textarea", "submit" ],
+              "label" : "Field type",
+              "placeholder" : "Field type"
+            }
+          },
+          "required" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "yes", "no" ],
+              "label" : "Required",
+              "placeholder" : "Required?"
+            }
+          }
+        },
+        "label" : "Form group fields"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "footer" : [ {
+            "name" : "footer",
+            "display" : "Footer"
+          } ]
+        },
+        "choices" : {
+          "hero" : {
+            "type" : "Slice",
+            "fieldset" : "Hero",
+            "description" : "Hero component",
+            "icon" : "looks_one",
+            "display" : "list",
+            "non-repeat" : {
+              "hero_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label" : "Hero title",
+                  "placeholder" : "Hero title"
+                }
+              },
+              "hero_content" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Hero content",
+                  "placeholder" : "Hero content"
+                }
+              },
+              "background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Background image"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  }
+}

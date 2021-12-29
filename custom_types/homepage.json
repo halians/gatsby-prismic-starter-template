@@ -1,0 +1,48 @@
+{
+  "Main" : {
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "hero" : [ ]
+        },
+        "choices" : {
+          "hero" : {
+            "type" : "Slice",
+            "fieldset" : "Hero",
+            "description" : "Hero component",
+            "icon" : "looks_one",
+            "display" : "list",
+            "non-repeat" : {
+              "hero_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+                  "label" : "Hero title",
+                  "placeholder" : "Hero title"
+                }
+              },
+              "hero_content" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Hero content",
+                  "placeholder" : "Hero content"
+                }
+              },
+              "background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Background image"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  }
+}
